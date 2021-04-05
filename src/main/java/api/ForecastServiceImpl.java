@@ -13,7 +13,7 @@ import java.util.Objects;
 
 public class ForecastServiceImpl {
 
-    private Retrofit retrofit;
+    private final Retrofit retrofit;
 
     public ForecastServiceImpl(Retrofit retrofit) {
         this.retrofit = retrofit;
@@ -27,13 +27,13 @@ public class ForecastServiceImpl {
         City city = Objects.requireNonNull(findCityCall.execute().body())
                 .stream()
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException(String.format("Can't find city id for %s", cityName)));
+                .orElseThrow(() -> new RuntimeException(String.format("Can't find city id for '%s'", cityName)));
 
         Call<List<Forecast>> forecastCall = service.getForecast(city.getWoeid(), pathDate);
         Forecast forecast = Objects.requireNonNull(forecastCall.execute().body())
                 .stream()
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException(String.format("Can't get forecast for %s", cityName)));
+                .orElseThrow(() -> new RuntimeException(String.format("Can't get forecast for '%s'", cityName)));
 
         return String.format("Weather on (%s) in %s:\n%s", pathDate, city.getTitle(), forecast);
     }
