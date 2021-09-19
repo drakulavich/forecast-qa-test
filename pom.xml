@@ -15,11 +15,19 @@
         <file.encoding>UTF-8</file.encoding>
         <java.version>11</java.version>
         <retrofit.version>2.7.2</retrofit.version>
-        <junit5.version>5.7.1</junit5.version>
+        <junit5.version>5.8.0</junit5.version>
+        <mockwebserver.version>3.14.7</mockwebserver.version>
     </properties>
 
     <dependencies>
         <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>mockwebserver</artifactId>
+            <version>${mockwebserver.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+             <dependency>
             <groupId>com.squareup.retrofit2</groupId>
             <artifactId>retrofit</artifactId>
             <version>${retrofit.version}</version>
@@ -42,6 +50,12 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit5.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.5</version>
         </dependency>
     </dependencies>
 
