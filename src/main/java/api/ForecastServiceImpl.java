@@ -24,10 +24,7 @@ public class ForecastServiceImpl {
 
         ForecastService service = retrofit.create(ForecastService.class);
         Call<List<City>> findCityCall = service.findCityByName(cityName.toLowerCase());
-        City city = Objects.requireNonNull(findCityCall.execute().body())
-                .stream()
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException(String.format("Can't find city id for '%s'", cityName)));
+        City city = null;
 
         Call<List<Forecast>> forecastCall = service.getForecast(city.getWoeid(), pathDate);
         Forecast forecast = Objects.requireNonNull(forecastCall.execute().body())
