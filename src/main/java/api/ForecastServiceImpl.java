@@ -29,7 +29,7 @@ public class ForecastServiceImpl {
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException(String.format("Can't find city id for '%s'", cityName)));
 
-        Call<List<Forecast>> forecastCall = service.getForecast(city.getWoeid(), pathDate);
+       Call<List<Forecast>> forecastCall = service.getForecast(city.getWoeid(), pathDate);
         Forecast forecast = Objects.requireNonNull(forecastCall.execute().body())
                 .stream()
                 .findFirst()
