@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <file.encoding>UTF-8</file.encoding>
         <java.version>11</java.version>
-        <retrofit.version>2.7.2</retrofit.version>
+        <retrofit.version>2.10.0</retrofit.version>
         <junit5.version>5.7.1</junit5.version>
     </properties>
 
